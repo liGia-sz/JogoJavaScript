@@ -8,7 +8,16 @@
     <title>Game Dino</title>
 </head>
 <body>
-    <div class="game-container">
+    <div class="start-screen" id="startScreen">
+        <div class="tutorial">
+            <p>
+                Use <b>↑</b> para pular, <b>↓</b> para agachar.<br>
+                Desvie dos cactos e das shurikens!<br>
+                O jogo começa em <span id="countdown">5</span> segundos...
+            </p>
+        </div>
+    </div>
+    <div class="game-container" style="display:none;">
         <div class="background">
             <div class="dino"></div>
         </div>

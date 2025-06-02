@@ -149,11 +149,47 @@ function gameOver() {
       <div class="final-score">Pontuação: ${score}</div>
       <button class="restart-btn" onclick="window.location.reload()">Reiniciar</button>
     </div>
+    <div class="tutorial">
+      <p>Use <b>↑</b> para pular, <b>↓</b> para agachar.<br>
+      Desvie dos cactos e das shurikens!<br>
+      Pressione <b>Enter</b> ou <b>Espaço</b> para reiniciar.</p>
+    </div>
   `;
+
+  // Listener para Enter ou Espaço reiniciar
+  document.addEventListener('keydown', function restartOnKey(e) {
+    if (e.code === 'Enter' || e.code === 'Space') {
+      window.location.reload();
+    }
+  });
 }
 
-createCactus();
-createShuriken();
-startScore();
-document.addEventListener('keydown', handleKeyDown);
-document.addEventListener('keyup', handleKeyUp);
+window.onload = function() {
+    const startScreen = document.getElementById('startScreen');
+    const gameContainer = document.querySelector('.game-container');
+    const countdownEl = document.getElementById('countdown');
+    let countdown = 5;
+
+    function startCountdown() {
+        const timer = setInterval(() => {
+            countdown--;
+            countdownEl.textContent = countdown;
+            if (countdown === 0) {
+                clearInterval(timer);
+                startScreen.style.display = 'none';
+                gameContainer.style.display = 'block';
+                iniciarJogo();
+            }
+        }, 1000);
+    }
+
+    startCountdown();
+};
+
+function iniciarJogo() {
+    createCactus();
+    createShuriken();
+    startScore();
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keyup', handleKeyUp);
+}

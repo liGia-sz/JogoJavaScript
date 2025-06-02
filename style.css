@@ -121,3 +121,25 @@ body {
     height: 100vh;
     gap: 24px;
 }
+
+.start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0; left: 0;
+    background: #fafafa;
+    z-index: 100;
+}
+
+.tutorial {
+    margin-top: 24px;
+    text-align: center;
+    font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.7;
+}
