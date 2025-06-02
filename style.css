@@ -1,5 +1,21 @@
-body{
+body {
     background-color: #fafafa;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
+}
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 250px;
+    margin: 0 auto;
+    background: transparent;
+    overflow: hidden;
+    box-shadow: 0 0 16px #ccc;
+    border-radius: 12px;
 }
 
 .dino{
@@ -10,6 +26,7 @@ body{
     background-repeat: no-repeat; /* Evita repetição da imagem */
     position: absolute;
     bottom: 0;
+    z-index: 2;
 }
 
 .cactos {
@@ -20,13 +37,32 @@ body{
     background-image: url(img/cactos.png);
     background-size: contain; /* Ajusta a imagem ao tamanho do elemento */
     background-repeat: no-repeat; /* Evita repetição da imagem */
+    z-index: 2;
+}
+
+.shuriken {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background-image: url(img/shuriken.gif); /* agora é .gif */
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 2;
+    transition: transform 0.1s;
 }
 
 .game-over{
-    margin-top: 50px;
+    margin: 0;
     text-align: center;
     color: #666666;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+}
+
+.final-score {
+    font-size: 24px;
+    color: #222;
+    margin: 0;
+    text-align: center;
 }
 
 @keyframes slideright{
@@ -40,10 +76,48 @@ body{
 
 .background{
     position: absolute;
+    left: 0;
     bottom: 0;
+    width: 100%;
+    height: 200px;
     background-image: url(img/background.png);
     background-repeat: repeat-x;
     animation: slideright 600s infinite linear;
-    width: 99%;
-    height: 200px;
+    z-index: 1;
+}
+
+.score {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 32px;
+    color: #444;
+    font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
+    z-index: 10;
+    letter-spacing: 1px;
+}
+
+.restart-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 12px 32px;
+    font-size: 18px;
+    background: #eee;
+    border: 2px solid #888;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #444;
+    transition: background 0.2s;
+}
+.restart-btn:hover {
+    background: #ddd;
+}
+
+.end-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 24px;
 }
