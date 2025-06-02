@@ -1,4 +1,4 @@
 # Jogo Java Script
 Desenvolvimento jogo em JavaScript com base no exemplo apresentado.
 
-img/Exemplo.png
+![alt text](image-1.png)
